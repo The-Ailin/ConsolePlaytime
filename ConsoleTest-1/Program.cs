@@ -10,27 +10,87 @@ namespace ConsoleTest_1
     {
         static void Main(string[] args)
         {
-            TestA a = new TestA();
-            a.A = 1;
+            while (true)
+            {
+                StartMenu();
+            }
+        }
 
-            TestA b = a;
-            b.A = 2;
+        private static void StartMenu()
+        {
 
-            Console.WriteLine("Object Reference Example:");
-            Console.WriteLine("TestA = " + a.A);
-            Console.WriteLine("TestB = " + b.A + "\n");
+            Console.WriteLine("\nSelect an option:");
+            Console.WriteLine("1. Run references example");
+            Console.WriteLine("2. Find square root\n");
 
-            int valueA = 3;
-            a.AddTenRef(ref valueA);
+            ProcessInput(Console.ReadLine());
 
-            int valueB = 3;
-            a.AddTenValue(valueB);
+        }
 
-            Console.WriteLine("Method Reference Example:");
-            Console.WriteLine("ValueA = " + valueA);
-            Console.WriteLine("ValueB = " + valueB);
+        private static void ProcessInput(string v)
+        {
+            try
+            {
+                v = v.Trim();
 
-            Console.ReadLine();
+                switch (v)
+                {
+                    case "1":
+                        RunReferenceExample();
+                        break;
+                    case "2":
+                        FindSquareRoot();
+                        break;
+                    default:
+                        Console.WriteLine("Incorrect value chosen.");
+                        break;
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine("Exception details:\n" + e.Message + "\n" + e.InnerException);
+                Console.WriteLine("\nPress any key to terminate application.");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
+        }
+
+        private static void FindSquareRoot()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void RunReferenceExample()
+        {
+            try
+            {
+                TestA a = new TestA();
+                a.A = 1;
+
+                TestA b = a;
+                b.A = 2;
+
+                Console.WriteLine("\nObject Reference Example:");
+                Console.WriteLine("TestA = " + a.A);
+                Console.WriteLine("TestB = " + b.A + "\n");
+
+                int valueA = 3;
+                a.AddTenRef(ref valueA);
+
+                int valueB = 3;
+                a.AddTenValue(valueB);
+
+                Console.WriteLine("Method Reference Example:");
+                Console.WriteLine("ValueA = " + valueA);
+                Console.WriteLine("ValueB = " + valueB + "\n");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception details:\n" + e.Message + "\n" + e.InnerException);
+                Console.WriteLine("\nPress any key to terminate application.");
+                Console.ReadKey();
+                Environment.Exit(0);
+            }
         }
     }
 
