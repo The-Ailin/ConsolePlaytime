@@ -24,7 +24,6 @@ namespace ConsoleTest_1
             Console.WriteLine("2. Find square root\n");
 
             ProcessInput(Console.ReadLine());
-
         }
 
         private static void ProcessInput(string v)
