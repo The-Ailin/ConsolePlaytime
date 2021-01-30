@@ -20,8 +20,9 @@ namespace ConsoleTest_1
         {
 
             Console.WriteLine("\nSelect an option:");
-            Console.WriteLine("1. Run references example");
-            Console.WriteLine("2. Find square root\n");
+            Console.WriteLine("1. Run reference types example");
+            Console.WriteLine("2. Run static members example");
+            Console.WriteLine("3. Find square root\n");
 
             ProcessInput(Console.ReadLine());
         }
@@ -90,28 +91,6 @@ namespace ConsoleTest_1
                 Console.ReadKey();
                 Environment.Exit(0);
             }
-        }
-    }
-
-    public class TestA
-    {
-        public TestA()
-        {
-        }
-
-        public int A { get; set; }
-
-        public static int B { get; set; }
-
-        public void AddTenRef(ref int value)
-        {
-            value = value + 10;
-        }
-
-        public int AddTenValue(int value)
-        {
-            value = value + 10;
-            return value;
         }
     }
 }
